@@ -1,83 +1,978 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fanny Shoes and Care</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanny Shoes And Care</title>
+    <link href="img/logo sepatu.jpg" rel="icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1565c0;
+            animation: zoomIn 1.2s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #1976d2;
+        }
+
+        .brochure-section {
+            margin: 2rem 0;
+            animation: slideInLeft 1.5s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .brochure-image {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(33, 150, 243, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .brochure-image:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .brochure-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.6);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23bbdefb" opacity="0.3"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-100px) translateX(100px); }
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #1565c0;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #1976d2;
+            margin-bottom: 3rem;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-row {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .service-content {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .service-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, white 0%, #f8f9fa 100%);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: left;
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.15);
+            transition: all 0.4s ease;
+            animation: slideInUp 1s ease-out;
+            position: relative;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #2196f3, #1976d2, #42a5f5);
+            border-radius: 25px;
+            z-index: -1;
+            margin: -2px;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(33, 150, 243, 0.25);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+            animation: iconBounce 2s infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .service-card h3 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .service-card p {
+            color: #1976d2;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1565c0;
+            animation: priceGlow 2s infinite;
+        }
+
+        @keyframes priceGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(21, 101, 192, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(21, 101, 192, 0.6), 0 0 30px rgba(21, 101, 192, 0.4); }
+        }
+
+        .price-badge {
+            background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .order-button {
+            width: 100%;
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .order-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(33, 150, 243, 0.4);
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+        }
+
+        .service-illustration {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            animation: rotate 10s infinite linear;
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.3);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive for Services */
+        @media (max-width: 768px) {
+            .service-row,
+            .service-row:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-card {
+                text-align: center;
+            }
+            
+            .service-illustration {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+        }
+=======
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1565c0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.2);
+            transition: all 0.3s ease;
+            animation: rotateIn 1s ease-out;
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-10deg) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0deg) scale(1);
+            }
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(33, 150, 243, 0.4);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: #1976d2;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1565c0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.2);
+            animation: flipIn 1s ease-out;
+        }
+
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: perspective(400px) rotateY(90deg);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(400px) rotateY(0deg);
+            }
+        }
+
+        .testimonial-card blockquote {
+            font-style: italic;
+            color: #1976d2;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: #0d47a1;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .services-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200px 0; }
+            100% { background-position: 200px 0; }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Navbar -->
-  <header class="bg-white shadow-md fixed top-0 w-full z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-indigo-600">Fanny Shoes & Care</h1>
-      <nav class="space-x-6 hidden md:flex">
-        <a href="#layanan" class="hover:text-indigo-500">Layanan</a>
-        <a href="#tentang" class="hover:text-indigo-500">Tentang</a>
-        <a href="#kontak" class="hover:text-indigo-500">Kontak</a>
-      </nav>
-    </div>
-  </header>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Fanny Shoes And Care</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="pt-24 pb-16 bg-indigo-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4">Sepatu Kotor? Biar Kami yang Urus!</h2>
-      <p class="text-lg mb-6">Layanan cuci sepatu, tas, topi, slipper, dan helm terpercaya di kotamu.</p>
-      <a href="#layanan" class="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">Lihat Layanan</a>
-    </div>
-  </section>
-
-  <!-- Layanan -->
-  <section id="layanan" class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-semibold text-center mb-12">Layanan Kami</h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-          <h4 class="text-xl font-semibold mb-2">Cuci Sepatu</h4>
-          <p>Kami membersihkan segala jenis sepatu dengan teknik dan bahan terbaik.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="floating">Fanny Shoes And Care</h1>
+                <p>Jasa Cuci Sepatu Profesional - Bersih, Wangi, dan Seperti Baru!</p>
+                
+                <div class="brochure-section">
+                    <div class="brochure-image">
+                        <img src="img/promo.jpg" alt="Professional shoe cleaning service brochure showing before and after images of dirty sneakers transformed to pristine condition, with blue gradient background, service pricing list, contact information, and Fanny Shoes And Care logo in modern design layout" />
+                    </div>
+                </div>
+                
+                <a href="#services" class="cta-button">Pesan Sekarang!</a>
+            </div>
         </div>
-        <div class="bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-          <h4 class="text-xl font-semibold mb-2">Cuci Tas & Topi</h4>
-          <p>Dari tas sekolah hingga topi kesayangan, semua bersih dan wangi.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Simple Clean</h3>
+                    <p>Pembersihan menyeluruh bagian luar sepatu</p>
+                    <div class="price">Rp 25.000</div>
+                </div>
+                <div class="service-card">
+                    <h3>Deep Clean</h3>
+                    <p>Pembersihan menyeluruhluar & dalam sepatu</p>
+                    <div class="price">Rp 30.000</div>
+                </div>
+                <div class="service-card">
+                    <h3>Repaint</h3>
+                    <p>Pembersihan luar dalam sepatu dan repaint warna sepatu</p>
+                    <div class="price">Rp 50.000</div>
+                </div>
+            </div>
         </div>
-        <div class="bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-          <h4 class="text-xl font-semibold mb-2">Cuci Slipper & Helm</h4>
-          <p>Slipper dan helm bersih bebas bau? Serahkan pada kami!</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Hasil Kerja Kami</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8a69a082-15d6-457b-86b1-1294c01cfa57.png" alt="Before and after comparison of white canvas sneakers showing transformation from heavily stained and yellowed condition to bright white pristine state after professional cleaning treatment" />
+                    </div>
+                    <div class="product-info">
+                        <h3>Sepatu Canvas</h3>
+                        <p>Hasil pembersihan sepatu canvas putih yang sudah menguning</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/sepatu kulit.jpeg" alt="Premium leather dress shoes transformation from scuffed and dull brown leather to polished glossy finish with restored color and shine after professional leather cleaning service" />
+                    </div>
+                    <div class="product-info">
+                        <h3>Sepatu Kulit</h3>
+                        <p>Perawatan sepatu kulit dengan hasil mengkilap seperti baru</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/sepatu olahraga.jpeg" />
+                    </div>
+                    <div class="product-info">
+                        <h3>Sepatu Olahraga</h3>
+                        <p>Pembersihan sepatu olahraga dengan teknologi deep cleaning</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/65efd907-ca05-4c67-9fea-e7df82a13c00.png" alt="High-end branded sneakers restoration showing expensive designer shoes cleaned from heavy dirt and stains to factory-fresh appearance with logo and details perfectly preserved" />
+                    </div>
+                    <div class="product-info">
+                        <h3>Sepatu Branded</h3>
+                        <p>Perawatan khusus untuk sepatu branded dengan hasil premium</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/42859962-8329-4d6f-b73f-2912dd63372f.png" alt="Children colorful sneakers cleaning transformation from playground dirt and food stains to bright vibrant colors with cartoon characters and designs looking brand new again" />
+                    </div>
+                    <div class="product-info">
+                        <h3>Sepatu Anak</h3>
+                        <p>Pembersihan lembut untuk sepatu anak dengan hasil maksimal</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24d10038-9ca9-4e14-ad2f-e18c79f456b9.png" alt="Professional work boots and formal shoes cleaning service showing heavy-duty boots and office shoes cleaned from mud and wear to polished professional appearance ready for workplace" />
+                    </div>
+                    <div class="product-info">
+                        <h3>Sepatu Kerja</h3>
+                        <p>Pembersihan sepatu kerja untuk tampilan profesional</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Tentang -->
-  <section id="tentang" class="py-16 bg-indigo-50">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-6">Tentang Kami</h3>
-      <p>Kami adalah tim profesional yang berkomitmen memberikan layanan perawatan barang-barang favoritmu dengan kualitas terbaik dan harga terjangkau.</p>
-    </div>
-  </section>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Testimoni Pelanggan</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <blockquote>"Sepatu saya yang sudah kusam jadi kinclong lagi! Pelayanan cepat dan hasil memuaskan."</blockquote>
+                    <div class="testimonial-author">- Budi Santoso</div>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"Harga terjangkau tapi kualitas premium. Sepatu anak saya jadi bersih banget!"</blockquote>
+                    <div class="testimonial-author">- Sari Wulandari</div>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"Recommended banget! Sepatu branded saya ditangani dengan sangat hati-hati."</blockquote>
+                    <div class="testimonial-author">- Ahmad Rizki</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Kontak -->
-  <section id="kontak" class="py-16 bg-white">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-6">Hubungi Kami</h3>
-      <p class="mb-4">Siap melayani pertanyaan dan pemesanan kamu lewat WhatsApp atau Instagram.</p>
-      <div class="flex justify-center gap-6">
-        <a href="https://wa.me/6281297001241" class="bg-green-500 text-white px-6 py-3 rounded-xl hover:bg-green-600 transition">WhatsApp</a>
-        <a href="https://www.instagram.com/fanny_shoes_care?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="bg-pink-500 text-white px-6 py-3 rounded-xl hover:bg-pink-600 transition">Instagram</a>
-      </div>
-    </div>
-  </section>
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Hubungi Kami</h2>
+            <p>Siap melayani sepatu Anda dengan profesional</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>WhatsApp</h3>
+                    <p>+62 812-3456-7890</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Instagram</h3>
+                    <a href="https://www.instagram.com/fanny_shoes_care?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">@fanny_shoes_care</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Alamat</h3>
+                    <p>Perum. Bhumi Cermai Apsari W-16</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Sabtu: 07.30 - 20.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-indigo-600 text-white py-6 mt-12 text-center">
-    &copy; 2025 Fanny Shoes and Care. All rights reserved.
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Fanny Shoes And Care. All rights reserved. | Jasa Cuci Sepatu Profesional</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.service-card, .product-card, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add loading effect to images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+
+        // Add hover effect to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) rotate(2deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotate(0deg)';
+            });
+        });
+
+        // Add click animation to CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255,255,255,0.6)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.left = (e.clientX - e.target.offsetLeft - 25) + 'px';
+            ripple.style.top = (e.clientY - e.target.offsetTop - 25) + 'px';
+            ripple.style.width = ripple.style.height = '50px';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Counter animation for prices
+        function animateCounter(element) {
+            const target = parseInt(element.textContent.replace(/[^0-9]/g, ''));
+            const duration = 2000;
+            const start = performance.now();
+            
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(progress * target);
+                
+                element.textContent = `Rp ${current.toLocaleString('id-ID')}`;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+            }
+            
+            requestAnimationFrame(updateCounter);
+        }
+
+        // Trigger counter animation when prices come into view
+        const priceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    priceObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.price').forEach(price => {
+            priceObserver.observe(price);
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                typeWriter(heroTitle, 'Fanny Shoes And Care', 150);
+            }
+        });
+    </script>
 </body>
 </html>
+
